@@ -1,0 +1,17 @@
+echo Stage2 error test start
+
+# Некорректные аргументы
+ls a b           # ожидается: ошибка — слишком много аргументов для ls
+cd               # ожидается: ошибка — cd требует ровно один аргумент
+
+# Незаданные переменные
+echo UNSET var: $THIS_VAR_DOES_NOT_EXIST
+echo Braced unset: ${NON_EXISTENT_VAR}
+
+# Ошибка разбора (незакрытая кавычка)
+ls "unterminated
+
+# Неизвестная команда
+thiscommanddoesnotexist arg1
+
+echo Stage2 error test finished

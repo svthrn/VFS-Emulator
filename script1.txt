@@ -1,0 +1,10 @@
+echo Stage2 minimal start
+# Параметры vfs-path будут показаны в окне при старте
+echo VFS path is: $VFS_PATH  # если вы экспортировали VFS_PATH в окружение — покажем её, иначе останется $VFS_PATH
+
+# Базовый набор команд
+echo Проверяем развёртку HOME: $HOME
+ls
+ls $HOME
+
+echo Minimal test finished

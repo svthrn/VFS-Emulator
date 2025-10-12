@@ -1,0 +1,25 @@
+echo Stage2 full test start
+
+# Проверка развёртки переменных
+echo User: $USER
+echo Home: ${HOME}
+echo Tilde home: ~
+echo Combined: "User=$USER Home=${HOME}"
+
+# Основные команды
+ls
+ls $HOME
+ls "${HOME}"     # проверка кавычек
+cd $HOME
+echo After cd (stub)
+
+# Проверка echo с кавычками и смешанными аргументами
+echo "This is a quoted string" unquoted_part 'single quoted part'
+
+# Проверки на более сложные аргументы
+ls ~/Documents
+ls "/non/existent/path"  
+
+# Неизвестная команда — покажет сообщение об ошибке
+unknown_command test
+

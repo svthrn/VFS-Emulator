@@ -1,0 +1,51 @@
+2025-10-12 10:46:13  Started emulator (VFS_NAME=VFS-default, vfs_path=C:\path\to\vfs_minimal, start_script=script1.txt)
+2025-10-12 10:46:13  Running start script: script1.txt
+2025-10-12 10:46:13  Script line 1: echo Stage2 minimal start
+2025-10-12 10:46:13  Script line 3: echo VFS path is: $VFS_PATH  # если вы экспортировали VFS_PATH в окружение — покажем её, иначе останется $VFS_PATH
+2025-10-12 10:46:13  Script line 6: echo Проверяем развёртку HOME: $HOME
+2025-10-12 10:46:13  Script line 7: ls
+2025-10-12 10:46:13  Script line 8: ls $HOME
+2025-10-12 10:46:13  Script line 10: echo Minimal test finished
+2025-10-12 10:46:13  Finished start script: script1.txt
+2025-10-12 10:46:19  Started emulator (VFS_NAME=VFS-default, vfs_path=C:\path\to\vfs_minimal, start_script=script2.txt)
+2025-10-12 10:46:19  Running start script: script2.txt
+2025-10-12 10:46:19  Script line 1: echo Stage2 full test start
+2025-10-12 10:46:19  Script line 4: echo User: $USER
+2025-10-12 10:46:19  Script line 5: echo Home: ${HOME}
+2025-10-12 10:46:19  Script line 6: echo Tilde home: ~
+2025-10-12 10:46:19  Script line 7: echo Combined: "User=$USER Home=${HOME}"
+2025-10-12 10:46:19  Script line 10: ls
+2025-10-12 10:46:19  Script line 11: ls $HOME
+2025-10-12 10:46:19  Script line 12: ls "${HOME}"     # проверка кавычек
+2025-10-12 10:46:19  ls: bad args ['C:\\Users\\svetl', '#', 'проверка', 'кавычек']
+2025-10-12 10:46:19  Error executing script line 12: ls "${HOME}"     # проверка кавычек
+2025-10-12 10:46:19  Script line 13: cd $HOME
+2025-10-12 10:46:19  Script line 14: echo After cd (stub)
+2025-10-12 10:46:19  Script line 17: echo "This is a quoted string" unquoted_part 'single quoted part'
+2025-10-12 10:46:19  Script line 20: ls ~/Documents
+2025-10-12 10:46:19  Script line 21: ls "/non/existent/path"  
+2025-10-12 10:46:19  Script line 24: unknown_command test
+2025-10-12 10:46:19  Unknown command: unknown_command  args=['test']
+2025-10-12 10:46:19  Error executing script line 24: unknown_command test
+2025-10-12 10:46:19  Finished start script: script2.txt
+2025-10-12 10:46:24  Started emulator (VFS_NAME=VFS-default, vfs_path=C:\path\to\vfs_minimal, start_script=script3.txt)
+2025-10-12 10:46:24  Running start script: script3.txt
+2025-10-12 10:46:24  Script line 1: echo Stage2 error test start
+2025-10-12 10:46:24  Script line 4: ls a b           # ожидается: ошибка — слишком много аргументов для ls
+2025-10-12 10:46:24  ls: bad args ['a', 'b', '#', 'ожидается:', 'ошибка', '—', 'слишком', 'много', 'аргументов', 'для', 'ls']
+2025-10-12 10:46:24  Error executing script line 4: ls a b           # ожидается: ошибка — слишком много аргументов для ls
+2025-10-12 10:46:24  Script line 5: cd               # ожидается: ошибка — cd требует ровно один аргумент
+2025-10-12 10:46:24  cd: bad args ['#', 'ожидается:', 'ошибка', '—', 'cd', 'требует', 'ровно', 'один', 'аргумент']
+2025-10-12 10:46:24  Error executing script line 5: cd               # ожидается: ошибка — cd требует ровно один аргумент
+2025-10-12 10:46:24  Script line 8: echo UNSET var: $THIS_VAR_DOES_NOT_EXIST
+2025-10-12 10:46:24  Script line 9: echo Braced unset: ${NON_EXISTENT_VAR}
+2025-10-12 10:46:24  Script line 12: ls "unterminated
+2025-10-12 10:46:24  Parse error: No closing quotation  line=ls "unterminated
+2025-10-12 10:46:24  Error executing script line 12: ls "unterminated
+2025-10-12 10:46:24  Script line 15: thiscommanddoesnotexist arg1
+2025-10-12 10:46:24  Unknown command: thiscommanddoesnotexist  args=['arg1']
+2025-10-12 10:46:24  Error executing script line 15: thiscommanddoesnotexist arg1
+2025-10-12 10:46:24  Script line 17: echo Stage2 error test finished
+2025-10-12 10:46:24  Finished start script: script3.txt
+2025-10-12 10:46:28  Interactive input: exit
+2025-10-12 10:46:28  Exit command received (script/interactive).
